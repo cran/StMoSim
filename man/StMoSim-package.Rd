@@ -3,23 +3,27 @@
 \alias{StMoSim}
 \docType{package}
 \title{
-Simulate QQ-Norm and TA-Plot
+Simulation in the QQ-Norm-Plot
 
 }
 \description{
-With this package you can simulate several lines into the QQnorm-Plot and the TA-plot under Gaussian distribution
+With this package you can simulate several lines into the QQ-Norm-Plot under the assumption of Gaussian distribution.
+This can be very useful in residual analysis if you have to evaluate whether a model fits the data or not.
+
+
+New in this Version: S4 - Classes
 }
 \details{
 \tabular{ll}{
 Package: \tab StMoSim\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2010-05-01\cr
+Version: \tab 2.0\cr
+Date: \tab 2011-03-31\cr
 License: \tab none\cr
 LazyLoad: \tab yes\cr
 }
-2 functions
-salvimat_qqnorm and salvimat_ta
+function:
+qqnormSim
 }
 \author{
 Matthias Salvisberg
