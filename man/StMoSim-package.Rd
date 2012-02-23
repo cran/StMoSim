@@ -9,9 +9,6 @@ Simulation in the QQ-Norm-Plot
 \description{
 With this package you can simulate several lines into the QQ-Norm-Plot under the assumption of Gaussian distribution.
 This can be very useful in residual analysis if you have to evaluate whether a model fits the data or not.
-
-
-New in this Version: S4 - Classes
 }
 \details{
 \tabular{ll}{

@@ -1,0 +1,6 @@
+# last modified 2012-02-23 by M. Salvisberg
+
+export(
+    qqnormSim
+)    
+
