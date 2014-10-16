@@ -1,5 +1,8 @@
-deef6deba489aeab85060de83abadd36 *DESCRIPTION
-66db53b20f3a10f4087c60cc98e56f0a *NAMESPACE
-d867038b92251622137bc97551533afd *R/qqnormSim.R
-f705864ccbc929634a7a90eaec188bfe *man/StMoSim-package.Rd
-000bf3a943bd0a96ab1ba412c3f908e8 *man/qqnormSim.Rd
+e50651658fec6d8aed456d8d7fc0a9e4 *DESCRIPTION
+54da85016da1176e756897ae7c32ff49 *NAMESPACE
+404139ff3f0031fce678b01f6e308e8e *R/RcppExports.R
+5aa89886607e059b064b6f38210ca65c *R/qqnormSim.R
+05eb87ae001ac537c3e20f6eef78b727 *man/StMoSim-package.Rd
+c1881c8d4f5d5ea0828b00e39eafa25f *man/qqnormSim.Rd
+38eeedd126846148fbcac3fc9ecc4ef3 *src/RcppExports.cpp
+7ff7cfc4020c9fb71ef7c0d0705363af *src/qqnormSim.cpp

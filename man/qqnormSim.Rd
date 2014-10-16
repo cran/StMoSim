@@ -4,21 +4,34 @@
 \alias{qqnormSim,numeric-method}
 
 \title{
-Simulate QQ-Norm-Plot
+Plots a QQ-Norm plot with several Gaussian simulations.
 }
 \description{
-Simulate QQ-Norm-Plot
+Plots a QQ-Norm plot of the variable x with nSim Gaussian simulations.
 }
 
 \usage{
-\S4method{qqnormSim}{lm}(x, n_sim = 500)
-\S4method{qqnormSim}{numeric}(x, n_sim = 500)
+\S4method{qqnormSim}{lm}(x, nSim = 500)
+\S4method{qqnormSim}{numeric}(x, nSim = 500)
 }
 
 \arguments{
   \item{x}{is a lm-object or a numeric vector. If it is an lm-object its residuals are plotted.}
-  \item{n_sim}{is an optional argument. If you like to have more or less than 500 simulations you can specify this parameter.}
+  \item{nSim}{is an optional argument. If you like to have more or less than 500 simulations you can specify this parameter.}
 }
+
+\examples{
+\dontrun{
+# The observations should behave like a simulation, 
+# because the observations are sampled from a Gaussian distribution.
+qqnormSim(rnorm(100))
+# On the first glance its obvious that this sample 
+# doesn't originate from a Gaussian distribution due to the heavy tails.
+qqnormSim(rt(100,df = 4))
+
+# Reduce the simulation tracks from 500 to 50. (500 is default).
+# Not recommended unless you have not enough computation power.
+qqnormSim(rnorm(100), nSim = 50)}}
 
 \keyword{ qqnorm }
 

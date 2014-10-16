@@ -1,6 +1,9 @@
-# last modified 2012-02-23 by M. Salvisberg
+# last modified 2014-10-15 by M. Salvisberg
 
-export(
-    qqnormSim
-)    
+useDynLib(StMoSim)
 
+importFrom(Rcpp, evalCpp)
+import(RcppParallel) 
+import(methods)
+
+export(qqnormSim) 

@@ -1,44 +1,40 @@
-myQQNorm <- function(x, n_sim){
+myQQNorm <- function(x, nSim){
   n_size <- length(x)
-  n_mad <- mad(x)
-  n_mean <- mean(x)
   
-  sim_mod <- matrix(rnorm(n_size * n_sim, n_mean, n_mad), ncol = n_sim)
-  
-  
-  quant <- function(xx){
-    quantile(xx,probs = seq(0.001,0.999,0.001))
+  if(n_size < 5){
+    stop("too small sample")
   }
   
-  n_quant <- apply(sim_mod,2,quant)
+  n_sd <- mad(x)
+  n_mean <- mean(x)
   
+  a <- ifelse(n_size <= 10, 3/8, 1/2)
+  myseq <- seq(from = (1 - a)/(n_size + (1-a)-a), to = (n_size - a)/(n_size + (1-a)-a), length.out = min(n_size,50))
   
+  n_quant <- myQQNormIntern(myseq,n_mean,n_sd,length(x),nSim)
   
-  qqnorm(x)
-  qqx <- qqnorm(x, plot.it = FALSE)$x
-  qqy <- qqnorm(x, plot.it = FALSE)$y
+  myX <- qnorm((1:n_size - a)/(n_size + (1-a)-a))
+  myY <- sort(x)
   
+  plot(myX, myY, main = "Normal Q-Q Plot - SIM", xlab = "Theoretical Quantiles", ylab = "Sample Quantiles") 
+  matlines(qnorm(myseq), n_quant, lty = 1,pch = 1, lwd = 3, col = "#cdd2d015")
   
-  matlines(qnorm(seq(0.001,0.999,0.001)), n_quant, lty = 1,pch = 1, lwd = 3, col = "#cdd2d015")
-  
-  points(qqx,qqy)
+  points(myX, myY)
   qqline(x)
   box()
 }
 
 
-setGeneric("qqnormSim", function(x, n_sim = 500) 
-			standardGeneric("qqnormSim"))
+setGeneric("qqnormSim", function(x, nSim = 500) 
+  standardGeneric("qqnormSim"))
 
 
 setMethod("qqnormSim","lm",
-    function(x, n_sim = 500){
-      myQQNorm(resid(x), n_sim)
-    })
+          function(x, nSim = 500){
+            myQQNorm(resid(x), nSim)
+          })
 
 setMethod("qqnormSim","numeric",
-		function(x, n_sim = 500){
-		  myQQNorm(x, n_sim)
-		})
-
-
+          function(x, nSim = 500){
+            myQQNorm(x, nSim)
+          })
